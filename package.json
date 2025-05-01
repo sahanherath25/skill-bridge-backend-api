@@ -1,0 +1,26 @@
+{
+  "name": "skill-bridge-backend-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon --exec mocha --timeout 5000 ",
+    "start": "nodemon server.js "
+  },
+  "author": "sahan herath",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "chai": "^4.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mocha": "^11.1.0",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.10",
+    "pm2": "^6.0.5",
+    "redis": "^4.7.0"
+  }
+}
