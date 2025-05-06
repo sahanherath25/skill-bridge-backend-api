@@ -19,10 +19,14 @@ const StudentSchema=new Schema({
         type: Number,
         required: [true,"age is required"],
     },
-    posts:[PostSchema]
+    posts:[PostSchema],
+    likes:Number
 
 })
 
+StudentSchema.virtual('postCount').get(function(){
+    return this.posts.length;
+})
 const Student=mongoose.model("student",StudentSchema)
 module.exports=Student;
 

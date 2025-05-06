@@ -5,7 +5,7 @@ describe("Update Users",()=>{
 
     beforeEach(async()=>{
 
-        const newUser=await Student.create({name:"Summer",age:28})
+        const newUser=await Student.create({name:"Summer",age:28,likes:0})
 
 
     })
@@ -72,23 +72,31 @@ describe("Update Users",()=>{
 
         const foundUser=await Student.findOne({name:"Summer"})
         expect(foundUser).to.be.exist
-
-        // console.log("Before Podate AGE UPDATE ",foundUser)
-
         const updatedUser=await Student.updateOne({name:foundUser.name},{$inc:{age:1}},{new:true})
-
         const updatedUserResults=await Student.findOne({name:"Summer Herath"})
-
-        // console.log("AFTER AGE UPDATE ",updatedUserResults)
 
         expect(updatedUserResults).to.be.exist
         expect(updatedUserResults).to.have.property('name');
         expect(updatedUserResults).to.have.property('age');
         expect(updatedUserResults).to.have.property('name',"Summer Herath");
-        // expect(updatedUserResults).not.to.have.property('name',"Summer");
 
+    });
 
-        // console.log("USER UPDATED ",updatedUserResults)
+    it('Should increase Increment By 5  ', async () => {
+
+        const foundUser=await Student.findOne({name:"Summer"})
+        expect(foundUser).to.be.exist
+        const updatedUser=await Student.updateOne({name:foundUser.name},{$inc:{age:1,likes:5}},{new:true})
+
+        const updatedUserResults=await Student.findOne({name:"Summer"})
+
+        // console.log("SUMER IS FOUND AfTER LIESK INCREMENT  ",updatedUserResults)
+        expect(updatedUserResults).to.be.exist
+        expect(updatedUserResults).to.have.property('name');
+        expect(updatedUserResults).to.have.property('age');
+        expect(updatedUserResults).to.have.property('name',"Summer");
+        expect(updatedUserResults).to.have.property('likes',5);
+
     });
 
 
