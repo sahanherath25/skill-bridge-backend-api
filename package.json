@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "nodemon --exec mocha --timeout 5000 ",
+    "test:ci": "mocha --timeout 5000 ",
     "start": "nodemon server.js ",
     "test-report": "mocha test --reporter mochawesome --require mochawesome/register",
     "start:pm2": "pm2 start server.js"
