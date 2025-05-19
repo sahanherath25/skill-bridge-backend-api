@@ -20,7 +20,7 @@ before( async () => {
 
     try {
         const db=await mongoose.connect(mongoDBUri)
-        console.log("Connected successfully")
+        console.log("Connected successfully DB")
     } catch (e) {
         console.log("Error ", e)
     }
