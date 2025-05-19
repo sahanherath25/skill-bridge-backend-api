@@ -10,7 +10,8 @@ dotdev.config({
 })
 
 // TODO Connect to the Database
-const mongoDBUri = process.env.MONGODB_URI.replace("<PASSWORD>", process.env.PASSWORD)
+// const mongoDBUri = process.env.MONGODB_URI.replace("<PASSWORD>", process.env.PASSWORD)
+const mongoDBUri = process.env.MONGODB_URI
 
 // console.log(mongoDBUri)
 
