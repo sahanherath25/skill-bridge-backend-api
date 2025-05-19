@@ -1,0 +1,711 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 20,
+    "passes": 16,
+    "pending": 1,
+    "failures": 3,
+    "start": "2025-05-08T15:53:50.917Z",
+    "end": "2025-05-08T15:53:59.153Z",
+    "duration": 8236,
+    "testsRegistered": 20,
+    "passPercent": 84.21052631578947,
+    "pendingPercent": 5,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2388d99b-1dd9-408e-9707-125bc3d9f049",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 1389,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "try {\n        const db=await mongoose.connect(mongoDBUri)\n        console.log(\"Connected successfully\")\n    } catch (e) {\n        console.log(\"Error \", e)\n    }",
+          "err": {},
+          "uuid": "a00d086d-1414-44f0-82d6-4bf14a60e193",
+          "parentUUID": "2388d99b-1dd9-408e-9707-125bc3d9f049",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [
+        {
+          "title": "\"after all\" hook in \"{root}\"",
+          "fullTitle": "\"after all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 351,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "// TODO Get All the  Collections\n    const{students,comments,blogposts}=mongoose.connection.collections\n    const student=await mongoose.connection.collections.students.drop();\n    const comment=await mongoose.connection.collections.comments.drop();\n    const blog=await mongoose.connection.collections.blogposts.drop();\n    // const userDeleted=await mongoose.connection.collections.students.drop();\n    // const deletingUser=await User.deleteOne({name:\"Sahan Udara\"})\n    // console.log(\"USER IS DELETED BEFORE TEST SHUT DOWN\",userDeleted)\n    mongoose.disconnect()",
+          "err": {},
+          "uuid": "dcf40cf3-6481-46b1-ab39-d4c30140eaf0",
+          "parentUUID": "2388d99b-1dd9-408e-9707-125bc3d9f049",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "851520b2-06a9-4a84-a3f2-4d7cc47b9b56",
+          "title": "Associations Tests",
+          "fullFile": "C:\\Users\\sahan\\Desktop\\My Programming Notes\\My Projects\\API Projects\\skill-bridge-backend-server\\test\\association_test.js",
+          "file": "\\test\\association_test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Associations Tests\"",
+              "fullTitle": "Associations Tests \"before each\" hook in \"Associations Tests\"",
+              "timedOut": false,
+              "duration": 39,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//     TODO Need to create User, BlogPost , Comment\n        let student,blogPost,comment\n         student=new  Student({\n            name:\"Max Miller\",\n            age:27\n        })\n        blogPost=new BlogPost({\n            title:\"Advanced Node\",\n            content:\"THere are many Advanced Concepts in Node  Like Clustering , Thread Pool \"\n        })\n        comment=new Comment({\n            content:\"Wow i didnt know that \",\n        })\n        student.blogPosts.push(blogPost)\n        blogPost.comments.push(comment)\n        comment.author=student\n        // await student.save()\n        // await blogPost.save()\n        // await comment.save()\n        Promise.all([student.save(),blogPost.save(),comment.save()]).then((data) => {\n            // console.log(\"Promise \",data)\n        }).catch((e)=>{\n            console.log(\"Promise  Error \",e)\n        })",
+              "err": {},
+              "uuid": "c32adf8d-76ed-4a3c-9c14-769a6a73acc2",
+              "parentUUID": "851520b2-06a9-4a84-a3f2-4d7cc47b9b56",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should ",
+              "fullTitle": "Associations Tests should ",
+              "timedOut": false,
+              "duration": 1349,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const studentFound=await Student.find({name:\"Max Miller\"})\n        // const studentFound=await Student.find({name:\"Alex Mae\"}).populate({\n        //     path:\"blogPosts\",\n        //     populate:{\n        //         path:\"comments\",\n        //         populate:{\n        //             path:\"author\",\n        //         }\n        //     }\n        // })\n        // console.log(\"THIS IS ASSOCAITED USER FOUND \",studentFound)",
+              "err": {},
+              "uuid": "8b1c94cc-0b3e-4a49-9a3e-356ffe3c01df",
+              "parentUUID": "851520b2-06a9-4a84-a3f2-4d7cc47b9b56",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8b1c94cc-0b3e-4a49-9a3e-356ffe3c01df"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1349,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "574e3347-a940-4bcf-bdfa-61752fc9456b",
+          "title": "User Creation Testing",
+          "fullFile": "C:\\Users\\sahan\\Desktop\\My Programming Notes\\My Projects\\API Projects\\skill-bridge-backend-server\\test\\create_user_test.js",
+          "file": "\\test\\create_user_test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create new user",
+              "fullTitle": "User Creation Testing should create new user",
+              "timedOut": false,
+              "duration": 161,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userData={\n            name:\"Sahan Udara\",\n            age:27\n        }\n        const newUser=await Student.create(userData)\n        const plainObject=await newUser.toObject();\n        // console.log(\"TYPE \",typeof newUser)\n        expect(plainObject).to.be.an(\"Object\");\n        expect(newUser).to.have.property(\"name\");\n        expect(newUser).to.have.property(\"age\");",
+              "err": {},
+              "uuid": "aad5fecc-7b28-41cd-84bb-e741cc57f276",
+              "parentUUID": "574e3347-a940-4bcf-bdfa-61752fc9456b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aad5fecc-7b28-41cd-84bb-e741cc57f276"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 161,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "6437aef8-8047-4e1f-847b-e8912511b2fb",
+          "title": "Delete Users",
+          "fullFile": "C:\\Users\\sahan\\Desktop\\My Programming Notes\\My Projects\\API Projects\\skill-bridge-backend-server\\test\\delete_user.js",
+          "file": "\\test\\delete_user.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Delete Users\"",
+              "fullTitle": "Delete Users \"before each\" hook in \"Delete Users\"",
+              "timedOut": false,
+              "duration": 126,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userData = {\n    name: \"Emma\",\n    age: 27\n}\nconst newUser = await Student.create(userData)\n// console.log(\"Created New User\",newUser)",
+              "err": {},
+              "uuid": "01fa45bb-e98c-44a4-8b92-16aa3fe64eba",
+              "parentUUID": "6437aef8-8047-4e1f-847b-e8912511b2fb",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should delete user matching filter object using deleteOne() ",
+              "fullTitle": "Delete Users should delete user matching filter object using deleteOne() ",
+              "timedOut": false,
+              "duration": 209,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const deletedUser = await Student.deleteOne({name: \"Emma\"})\nexpect(deletedUser).to.exist;\nconsole.log(\"RETURN \",deletedUser);\nconst userFound = await Student.findOne({name: \"Emma\"})\n// console.log(\"USER FOUDN in findOne\",userFound)\nexpect(userFound).to.be.null",
+              "err": {},
+              "uuid": "1d7a3d76-ad1d-4b52-bd43-131bb51f6b1f",
+              "parentUUID": "6437aef8-8047-4e1f-847b-e8912511b2fb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete user matching filter object using findByIdAndDelete ",
+              "fullTitle": "Delete Users should delete user matching filter object using findByIdAndDelete ",
+              "timedOut": false,
+              "duration": 234,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userFound = await Student.findOne({name: \"Emma\"})\n        const deletedUser = await Student.findByIdAndDelete(userFound._id.toString())\n        // console.log(\"USER FOUND \",deletedUser)\n        expect(deletedUser).to.exist;",
+              "err": {},
+              "uuid": "c888ae7a-dc4c-4fdb-b5e2-a2af7f87d714",
+              "parentUUID": "6437aef8-8047-4e1f-847b-e8912511b2fb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete user matching filter object using findOneAndDelete ",
+              "fullTitle": "Delete Users should delete user matching filter object using findOneAndDelete ",
+              "timedOut": false,
+              "duration": 229,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userFound = await Student.findOne({name: \"Emma\"})\n        // console.log(\"USER FOUND \",userFound._id.toString())\n        const deletedUser = await Student.findOneAndDelete({name: \"Emma\"})\n        expect(deletedUser).to.exist;",
+              "err": {},
+              "uuid": "46b75f00-de3c-4f30-89b5-517ddee0fbc1",
+              "parentUUID": "6437aef8-8047-4e1f-847b-e8912511b2fb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1d7a3d76-ad1d-4b52-bd43-131bb51f6b1f",
+            "c888ae7a-dc4c-4fdb-b5e2-a2af7f87d714",
+            "46b75f00-de3c-4f30-89b5-517ddee0fbc1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 672,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8ac9b16f-12bf-4634-9e97-fb44d9f17d66",
+          "title": "Reading Users",
+          "fullFile": "C:\\Users\\sahan\\Desktop\\My Programming Notes\\My Projects\\API Projects\\skill-bridge-backend-server\\test\\read_users_test.js",
+          "file": "\\test\\read_users_test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Reading Users\"",
+              "fullTitle": "Reading Users \"before each\" hook in \"Reading Users\"",
+              "timedOut": false,
+              "duration": 100,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userData={\n    name:\"James Anderson\",\n    age:40\n}\nnewUser=await Student.create(userData)",
+              "err": {},
+              "uuid": "d4056a1f-52af-463d-8b6d-c7f32591f7f2",
+              "parentUUID": "8ac9b16f-12bf-4634-9e97-fb44d9f17d66",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should find all users",
+              "fullTitle": "Reading Users should find all users",
+              "timedOut": false,
+              "duration": 133,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "foundUsers=await Student.find()\n        // console.log(\"FOUND USERS \",foundUsers)\n        expect(foundUsers).to.exist;\n        expect(foundUsers).to.be.an('array');\n        expect(foundUsers.length).to.be.equal(3)\n        expect(foundUsers[0]).to.have.property('name');\n        expect(foundUsers[0]).to.have.property('age');",
+              "err": {
+                "message": "AssertionError: expected 23 to equal 3",
+                "estack": "AssertionError: expected 23 to equal 3\n    at Context.<anonymous> (test\\read_users_test.js:28:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 23\n+ 3\n"
+              },
+              "uuid": "00455d49-a5c0-4bae-b648-f3de8fbd8313",
+              "parentUUID": "8ac9b16f-12bf-4634-9e97-fb44d9f17d66",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should find single user",
+              "fullTitle": "Reading Users should find single user",
+              "timedOut": false,
+              "duration": 115,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const foundUser=await Student.findOne({name:\"James Anderson\"})\n        // console.log(\"New USer ID\",newUser._id);\n        // console.log(\"Found User USer ID\",foundUser._id);\n        // expect(foundUser._id.toString()).equal(newUser._id.toString());\n        expect(foundUser).to.exist;\n        expect(foundUser).to.be.an('object');\n        // TODO Property Exists Test\n        expect(foundUser).to.have.property('name');\n        expect(foundUser).to.have.property('age');\n        // TODO Property  and value Exists  Test\n        expect(foundUser).to.have.property('name', 'James Anderson');\n        expect(foundUser).to.have.property('age', 40);",
+              "err": {},
+              "uuid": "a11f5b29-a3ad-44c7-98d8-b628cd007bcf",
+              "parentUUID": "8ac9b16f-12bf-4634-9e97-fb44d9f17d66",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should find a user with particular user id ",
+              "fullTitle": "Reading Users should find a user with particular user id ",
+              "timedOut": false,
+              "duration": 127,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userFound=await Student.findById(newUser._id)\n        expect(userFound).to.exist;\n        expect(userFound).to.have.property(\"name\");\n        expect(userFound).to.have.property(\"age\");",
+              "err": {},
+              "uuid": "0f2dc2e7-061e-4b4b-a8ff-1166b8924538",
+              "parentUUID": "8ac9b16f-12bf-4634-9e97-fb44d9f17d66",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a11f5b29-a3ad-44c7-98d8-b628cd007bcf",
+            "0f2dc2e7-061e-4b4b-a8ff-1166b8924538"
+          ],
+          "failures": [
+            "00455d49-a5c0-4bae-b648-f3de8fbd8313"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 375,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "54b4d086-cf18-4c63-8532-05781967fc36",
+          "title": "Student Schema Validation Test",
+          "fullFile": "C:\\Users\\sahan\\Desktop\\My Programming Notes\\My Projects\\API Projects\\skill-bridge-backend-server\\test\\student_schema_validation_test.js",
+          "file": "\\test\\student_schema_validation_test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should validate fields in Student Schema",
+              "fullTitle": "Student Schema Validation Test should validate fields in Student Schema",
+              "timedOut": false,
+              "duration": 7,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const user = new Student({name: undefined})\n        //TODO Do not use create() because it will create and save()\n        // const user = await Student.create({name:undefined})\n        const validationResult = user.validateSync();\n        const {message} = validationResult.errors.name\n        // console.log(\"VALIDATE SYNC \",message)\n        expect(message).to.equal('name is required');\n        // TODO we also have validate() difference is that validateSync() is synchronous\n        // const userFound=Student.findOne({name:\"James Anderson\"})",
+              "err": {},
+              "uuid": "a8294877-c51b-4613-a9d8-18b78307b326",
+              "parentUUID": "54b4d086-cf18-4c63-8532-05781967fc36",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate with a validation function ",
+              "fullTitle": "Student Schema Validation Test should validate with a validation function ",
+              "timedOut": false,
+              "duration": 2,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// const userFound=Student.findOne({name:\"James Anderson\"})\n        const user = new Student({name: \"Sa\", age: 30})\n        const validationResult = user.validateSync();\n        const {message} = validationResult.errors.name\n        expect(message).to.equal('Name must be longer than 2 Characters');",
+              "err": {},
+              "uuid": "89251458-ea0a-486d-a0fc-59c33e1be528",
+              "parentUUID": "54b4d086-cf18-4c63-8532-05781967fc36",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should disallowed user to save  when user enter invalid data",
+              "fullTitle": "Student Schema Validation Test should disallowed user to save  when user enter invalid data",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// const userFound=Student.findOne({name:\"James Anderson\"})\n        try {\n            const user = await Student.create({name:\"Sa\",age:30})\n            const validationResult = user.validateSync();\n            const {message} = validationResult.errors.name\n            expect(message).to.equal('Name must be longer than 2 Characters');\n        } catch (e) {\n            // const {message}=e.errors.name.properties\n            const {message}=e.errors.name\n            // console.log(\"ERROR OBJECT \",e)\n            expect(message).to.equal('Name must be longer than 2 Characters');\n            // console.log(\"Error Sahan\",e.errors.name.properties.message)\n            // console.log(\"Error \",e.errors._message)\n        }",
+              "err": {},
+              "uuid": "250ee662-8368-4ecf-add7-ffd30a424bd3",
+              "parentUUID": "54b4d086-cf18-4c63-8532-05781967fc36",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a8294877-c51b-4613-a9d8-18b78307b326",
+            "89251458-ea0a-486d-a0fc-59c33e1be528",
+            "250ee662-8368-4ecf-add7-ffd30a424bd3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "53993826-e545-4031-af6c-da21e4c4a5d6",
+          "title": "Sub Document Tests",
+          "fullFile": "C:\\Users\\sahan\\Desktop\\My Programming Notes\\My Projects\\API Projects\\skill-bridge-backend-server\\test\\sub_document_test.js",
+          "file": "\\test\\sub_document_test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a sub document",
+              "fullTitle": "Sub Document Tests should create a sub document",
+              "timedOut": false,
+              "duration": 161,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//     TODO create a user with posts\n    const user=await Student.create({\n        name:\"Diana Mae\",\n        age:27,\n        posts:[\n            {title:\"Flipped\"},\n            {title:\"One Day\"}\n        ]\n    })\n    // console.log(\"User Fro  Sub Document \",user)\n    expect(user.posts.length).to.be.equal(2);",
+              "err": {},
+              "uuid": "f6fc3591-7d4f-4b2c-a16a-5ff940d40d35",
+              "parentUUID": "53993826-e545-4031-af6c-da21e4c4a5d6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should able to add sub document to an existing document",
+              "fullTitle": "Sub Document Tests should able to add sub document to an existing document",
+              "timedOut": false,
+              "duration": 274,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//     TODO create a user with posts\n        const user=await Student.create({\n            name:\"Alex Johnson\",\n            age:27,\n        })\n        const updatedUser=await Student.findOneAndUpdate({name:\"Alex Johnson\"},{$push:{posts:{title:\"Batman\"}}},{new:true})\n        // console.log(\"User Fro  Sub Document \",updatedUser)\n        expect(updatedUser.posts.length).to.be.equal(1);\n        expect(updatedUser.posts[0]).to.have.property('title','Batman');\n        const foundUser=await Student.findOne({name:\"Alex Johnson\"})\n        if(foundUser){\n            foundUser.posts.push({title:\"Jocker\"})\n            await foundUser.save()\n        }\n        const after=await Student.findOne({name:\"Alex Johnson\"})\n        expect(after.posts.length).to.be.equal(2);\n        expect(after.posts[0]).to.have.property('title','Batman');\n        expect(after.posts[1]).to.have.property('title','Jocker');",
+              "err": {
+                "message": "AssertionError: expected 4 to equal 1",
+                "estack": "AssertionError: expected 4 to equal 1\n    at Context.<anonymous> (test\\sub_document_test.js:33:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 4\n+ 1\n"
+              },
+              "uuid": "7b444d4c-00ac-4c79-90c9-2ab289b34208",
+              "parentUUID": "53993826-e545-4031-af6c-da21e4c4a5d6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should able to create and delete a  sub document ",
+              "fullTitle": "Sub Document Tests should able to create and delete a  sub document ",
+              "timedOut": false,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "4ce379eb-c790-459a-b0ad-89a3a00771a8",
+              "parentUUID": "53993826-e545-4031-af6c-da21e4c4a5d6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should able to check a virtual prop added ",
+              "fullTitle": "Sub Document Tests should able to check a virtual prop added ",
+              "timedOut": false,
+              "duration": 513,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//     TODO create a user with posts\n        const user=await Student.create({\n            name:\"Diamond Johnson\",\n            age:27,\n        })\n        // TODO Add A Sub document\n        const updatedUser=await Student.findByIdAndUpdate(user.id,{$push:{posts:{title:\"Amazing Spiderman\"}}},{new:true})\n        expect(updatedUser.posts.length).to.be.equal(1);\n        expect(updatedUser.posts[0].title).to.be.equal(\"Amazing Spiderman\");\n        expect(updatedUser.posts[0]).to.have.property(\"title\",\"Amazing Spiderman\");\n        expect(updatedUser.postCount).to.be.equal(1,\"We have Virtual Property\");\n        const foundUser=await Student.findById(updatedUser.id)\n        const postToRemove=foundUser.posts.id(foundUser.posts[0]._id)\n        // foundUser.posts.pull(postToRemove)\n        // await foundUser.save()\n        // TODO Find the User and Remove the SubDocument\n        const userAfterDelete=await Student.findByIdAndUpdate(foundUser.id,{$pull:{posts:{_id:postToRemove}}},{new:true})\n        // console.log(\"Hello Sahan\",userAfterDelete)",
+              "err": {},
+              "uuid": "36b03073-7082-4c2c-98b3-37c1eeab907d",
+              "parentUUID": "53993826-e545-4031-af6c-da21e4c4a5d6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f6fc3591-7d4f-4b2c-a16a-5ff940d40d35",
+            "36b03073-7082-4c2c-98b3-37c1eeab907d"
+          ],
+          "failures": [
+            "7b444d4c-00ac-4c79-90c9-2ab289b34208"
+          ],
+          "pending": [
+            "4ce379eb-c790-459a-b0ad-89a3a00771a8"
+          ],
+          "skipped": [],
+          "duration": 948,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "9fa76604-ce73-458e-a817-07b68b4eac11",
+          "title": "Update Users",
+          "fullFile": "C:\\Users\\sahan\\Desktop\\My Programming Notes\\My Projects\\API Projects\\skill-bridge-backend-server\\test\\update_users_test.js",
+          "file": "\\test\\update_users_test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Update Users\"",
+              "fullTitle": "Update Users \"before each\" hook in \"Update Users\"",
+              "timedOut": false,
+              "duration": 127,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const newUser=await Student.create({name:\"Summer\",age:28,likes:0})",
+              "err": {},
+              "uuid": "b6ac9d15-7bff-4f1a-a45e-f33ada946747",
+              "parentUUID": "9fa76604-ce73-458e-a817-07b68b4eac11",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update user name by updateOne",
+              "fullTitle": "Update Users should update user name by updateOne",
+              "timedOut": false,
+              "duration": 116,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const foundUser=await Student.findOne({name:\"Summer\"})\n        expect(foundUser).to.be.exist\n        const updatedUser=await Student.updateOne({name:\"Summer\"},{name:\"Summer Herath\"})\n        const updatedUserResults=await Student.findOne({name:\"Summer Herath\"})\n        expect(updatedUserResults).to.be.exist\n        expect(updatedUserResults).to.have.property('name');\n        expect(updatedUserResults).to.have.property('age');\n        expect(updatedUserResults).to.have.property('name',\"Summer Herath\");\n        expect(updatedUserResults).not.to.have.property('name',\"Summer\");\n        // console.log(\"USER UPDATED \",updatedUserResults)",
+              "err": {
+                "message": "AssertionError: expected null to exist",
+                "estack": "AssertionError: expected null to exist\n    at Context.<anonymous> (test\\update_users_test.js:17:32)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "728114aa-7732-4564-a4ab-87be70166678",
+              "parentUUID": "9fa76604-ce73-458e-a817-07b68b4eac11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update user name by findOneAndUpdate",
+              "fullTitle": "Update Users should update user name by findOneAndUpdate",
+              "timedOut": false,
+              "duration": 341,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const foundUser=await Student.findOne({name:\"Summer\"})\n        expect(foundUser).to.be.exist\n        const updatedUser=await Student.findOneAndUpdate({_id:foundUser.id},{name:\"Summer Herath\"},{new:true})\n        const updatedUserResults=await Student.findOne({name:\"Summer Herath\"})\n        // console.log(\"UPDATED \",updatedUser)\n        expect(updatedUserResults).to.be.exist\n        expect(updatedUserResults).to.have.property('name');\n        expect(updatedUserResults).to.have.property('age');\n        expect(updatedUserResults).to.have.property('name',\"Summer Herath\");\n        expect(updatedUserResults).not.to.have.property('name',\"Summer\");\n        // console.log(\"USER UPDATED \",updatedUserResults)",
+              "err": {},
+              "uuid": "9032549a-df17-4b5a-b925-a4134169684f",
+              "parentUUID": "9fa76604-ce73-458e-a817-07b68b4eac11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update user name by findByIdAndUpdate",
+              "fullTitle": "Update Users should update user name by findByIdAndUpdate",
+              "timedOut": false,
+              "duration": 351,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const foundUser=await Student.findOne({name:\"Summer\"})\n        expect(foundUser).to.be.exist\n        const updatedUser=await Student.findByIdAndUpdate(foundUser.id,{name:\"Summer Herath\"},{new:true})\n        const updatedUserResults=await Student.findOne({name:\"Summer Herath\"})\n        // console.log(\"UPDATED \",updatedUser._id)\n        // console.log(\"UPDATED \",foundUser._id)\n        // console.log(\"Are the same  \",foundUser.id===updatedUser.id)\n        expect(updatedUserResults).to.be.exist\n        expect(updatedUserResults).to.have.property('name');\n        expect(updatedUserResults).to.have.property('age');\n        expect(updatedUserResults).to.have.property('name',\"Summer Herath\");\n        expect(updatedUserResults).not.to.have.property('name',\"Summer\");",
+              "err": {},
+              "uuid": "9482bd9f-d3bc-41f7-bd0b-ee6c0d9f9fee",
+              "parentUUID": "9fa76604-ce73-458e-a817-07b68b4eac11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update user name by update",
+              "fullTitle": "Update Users should update user name by update",
+              "timedOut": false,
+              "duration": 354,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const foundUser=await Student.findOne({name:\"Summer\"})\n        expect(foundUser).to.be.exist\n        const updatedUser=await Student.updateOne({name:foundUser.name},{$inc:{age:1}},{new:true})\n        const updatedUserResults=await Student.findOne({name:\"Summer Herath\"})\n        expect(updatedUserResults).to.be.exist\n        expect(updatedUserResults).to.have.property('name');\n        expect(updatedUserResults).to.have.property('age');\n        expect(updatedUserResults).to.have.property('name',\"Summer Herath\");",
+              "err": {},
+              "uuid": "620988e7-f5d7-4c45-aade-2733fc068788",
+              "parentUUID": "9fa76604-ce73-458e-a817-07b68b4eac11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should increase Increment By 5  ",
+              "fullTitle": "Update Users Should increase Increment By 5  ",
+              "timedOut": false,
+              "duration": 362,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const foundUser=await Student.findOne({name:\"Summer\"})\n        expect(foundUser).to.be.exist\n        const updatedUser=await Student.updateOne({name:foundUser.name},{$inc:{age:1,likes:5}},{new:true})\n        const updatedUserResults=await Student.findOne({name:\"Summer\"})\n        // console.log(\"SUMER IS FOUND AfTER LIESK INCREMENT  \",updatedUserResults)\n        expect(updatedUserResults).to.be.exist\n        expect(updatedUserResults).to.have.property('name');\n        expect(updatedUserResults).to.have.property('age');\n        expect(updatedUserResults).to.have.property('name',\"Summer\");\n        expect(updatedUserResults).to.have.property('likes',5);",
+              "err": {},
+              "uuid": "65bd8a85-860d-416d-8542-36624899df64",
+              "parentUUID": "9fa76604-ce73-458e-a817-07b68b4eac11",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9032549a-df17-4b5a-b925-a4134169684f",
+            "9482bd9f-d3bc-41f7-bd0b-ee6c0d9f9fee",
+            "620988e7-f5d7-4c45-aade-2733fc068788",
+            "65bd8a85-860d-416d-8542-36624899df64"
+          ],
+          "failures": [
+            "728114aa-7732-4564-a4ab-87be70166678"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1524,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+name: Run Tests
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greet
+        run: echo " Start Testing..."
+      - name: Get the Code
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run the Test
+        run: npm run test

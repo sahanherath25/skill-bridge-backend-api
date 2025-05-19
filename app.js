@@ -5,22 +5,32 @@ const userRouter=require("./routes/userROuter");
 const User=require("./models/userSchema");
 const {clearHash}=require("./services/cache")
 
+
+// const newUser= User({name:"Emma",age:27})
+// newUser.save()
+
 //
 async function createNewUser(){
 
     const userId=2525
-    // const newUser=await User.create({name:"Emma",age:27})
+    const newUser=await User.create({name:"Emma",age:27})
 
-    clearHash(userId)
+    // clearHash(userId)
 
-    const user=await User.find().cache({key:userId});
-    console.log("USER FOUDN IS ",user)
+    // const user=await User.find().cache({key:userId});
+
+    // console.log("USER FOUDN IS ",user)
+
+
+
 }
 
 //
 //
 //
-createNewUser()
+
+ createNewUser()
+
 
 // User.findOne().then(({{name:"Abigirl",age:27})=>{
 //     console.log("USER FOUND ",user);
@@ -43,7 +53,7 @@ createNewUser()
 app.use(express.json());
 app.use(cors());
 
-app.use("/users",userRouter)
+app.use("/api/v1/users",userRouter)
 
 
 

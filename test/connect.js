@@ -28,7 +28,17 @@ before( async () => {
 
 after( async () => {
 
-    const userDeleted=await mongoose.connection.collections.students.drop();
+    // TODO Get All the  Collections
+
+    const{students,comments,blogposts}=mongoose.connection.collections
+
+
+
+    const student=await mongoose.connection.collections.students.drop();
+    const comment=await mongoose.connection.collections.comments.drop();
+    const blog=await mongoose.connection.collections.blogposts.drop();
+
+    // const userDeleted=await mongoose.connection.collections.students.drop();
     // const deletingUser=await User.deleteOne({name:"Sahan Udara"})
     // console.log("USER IS DELETED BEFORE TEST SHUT DOWN",userDeleted)
 

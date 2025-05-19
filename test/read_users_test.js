@@ -7,11 +7,16 @@ describe("Reading Users",()=>{
     let newUser;
 
     beforeEach(async () => {
-        const userData={
-            name:"James Anderson",
-            age:40
-        }
-        newUser=await Student.create(userData)
+
+        const user1=newUser=await Student.create({name:"Zack",age:27})
+        const user2=newUser=await Student.create({name:"Emma",age:29})
+        const user3=newUser=await Student.create({name:"Zari",age:26})
+        const user4=newUser=await Student.create({name:"Summer",age:30})
+        const user5=newUser=await Student.create({name:"Kane",age:30})
+        const user6=newUser=await Student.create({name:"James Anderson",age:40})
+
+
+
     })
 
 
@@ -25,7 +30,7 @@ describe("Reading Users",()=>{
 
         expect(foundUsers).to.exist;
         expect(foundUsers).to.be.an('array');
-        expect(foundUsers.length).to.be.equal(2)
+        expect(foundUsers.length).to.be.equal(9)
         expect(foundUsers[0]).to.have.property('name');
         expect(foundUsers[0]).to.have.property('age');
 
@@ -62,6 +67,17 @@ describe("Reading Users",()=>{
         expect(userFound).to.exist;
         expect(userFound).to.have.property("name");
         expect(userFound).to.have.property("age");
+
+    });
+
+    it('should skip and limit the results', async () => {
+
+        const users=await Student.find().skip(1).limit(3);
+
+        expect(users.length).to.be.equal(3);
+
+        // console.log("USeRS SAHAN FOUND ",users)
+
 
     });
 

@@ -1,4 +1,7 @@
-exports.getAllUsers = async (req, res, next) => {
+const User=require('../models/userSchema');
+
+
+exports.fetchUser = async (req, res, next) => {
 
     res.status(200).json({
         status: "success",
@@ -7,13 +10,17 @@ exports.getAllUsers = async (req, res, next) => {
     })
 }
 
-exports.getAllUsers = async (req, res, next) => {
+exports.fetchAllUsers = async (req, res, next) => {
 
 
+    const users=await User.find().cache()
 
     res.status(200).json({
         status: "success",
-        message: "Api is Still Implementing"
+        message: "Found Users",
+        data:{
+            users:users
+        }
 
     })
 }
