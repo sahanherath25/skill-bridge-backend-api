@@ -3,8 +3,6 @@ on: push
 jobs:
   first-job:
     runs-on: ubuntu-latest
-    env:
-      MONGODB_URI: ${{ secrets.MONGODB_URI }}
     steps:
       - name: Print Greet
         run: echo " Start Testing..."
@@ -21,3 +19,4 @@ jobs:
           echo "MONGODB_URI is set? -> ${MONGODB_URI:+yes}"
       - name: Run the Test
         run: npm run test
+
