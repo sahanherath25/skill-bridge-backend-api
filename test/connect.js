@@ -14,7 +14,7 @@ dotdev.config({
 const mongoDBUri = process.env.MONGODB_URI
 
 // console.log(mongoDBUri)
-
+console.log('MONGODB_URI from process.env:', process.env.MONGODB_URI);
 
 before( async () => {
 
