@@ -22,6 +22,7 @@ jobs:
       - name: Run the Test
         run: npm run test:ci
   deploy:
+    needs: first-job
     runs-on: ubuntu-latest
     env:
       MONGODB_URI: ${{secrets.MONGODB_URI}}
@@ -38,4 +39,6 @@ jobs:
         run: echo "Building the Project..."
       - name: Deploy to the Server
         run: echo "Deploying......"
+
+
 
