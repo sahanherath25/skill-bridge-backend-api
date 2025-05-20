@@ -23,7 +23,8 @@ jobs:
         run: npm run test:ci
   deploy:
     runs-on: ubuntu-latest
-    env: ${{secrets.MONGODB_URI}}
+    env:
+      ${{secrets.MONGODB_URI}}
     steps:
       - name: Get the Code
         uses: actions/checkout@v4
