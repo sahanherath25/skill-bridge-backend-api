@@ -21,4 +21,20 @@ jobs:
           echo "MONGODB_URI is set? -> ${MONGODB_URI:+yes}"
       - name: Run the Test
         run: npm run test:ci
+  deploy:
+    runs-on: ubuntu-latest
+    env: ${{secrets.MONGODB_URI}}
+    steps:
+      - name: Get the Code
+        run: actions/checkout@v4
+      - name: Install Node
+        run: actions/setup-node@v4
+        with:
+          node-version: 19
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build Project
+        run: echo "Building the Project..."
+      - name: Deploy to the Server
+        run: echo"Deploying......"
 
