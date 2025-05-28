@@ -67,17 +67,17 @@ describe('Associations Tests', () => {
         expect(studentFound.blogPosts[0]).to.have.property("title","Advanced Node")
 
 
-        console.log("Student Found ",studentFound.blogPosts[0])
+        // console.log("Student Found ",studentFound.blogPosts[0])
 
         const deletedUser=await studentFound.deleteOne({_id:studentFound._id})
-        console.log("DELETED USER IS ",deletedUser)
+        // console.log("DELETED USER IS ",deletedUser)
 
 
         // TODO After Deleting the BlogPosts in this user's we
         //  try to find are there any colleciont in blogposts
         const blogs=await BlogPost.countDocuments();
 
-        console.log("Documents Found is ",blogs)
+        // console.log("Documents Found is ",blogs)
 
 
         //
