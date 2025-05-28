@@ -13,7 +13,7 @@ dotenv.config({
 });
 
 
-const mongoDBURI= process.env.MONGODB_URI.replace("<PASSWORD>", process.env.PASSWORD)
+const mongoDBURI= process.env.MONGODB_URI_LOCAL.replace("<PASSWORD>", process.env.PASSWORD)
 // client.connect(
 
 mongoose.connect(mongoDBURI).then(()=>{

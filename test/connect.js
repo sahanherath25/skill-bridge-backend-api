@@ -2,15 +2,15 @@
 
 // Initial Setup for the Test
 const mongoose = require('mongoose')
-const dotdev = require('dotenv')
+const dotenv = require('dotenv')
 const User=require("../models/userSchema");
 
-dotdev.config({
+dotenv.config({
     path: "./config.env"
 })
 
 // TODO Connect to the Database
-// const mongoDBUri = process.env.MONGODB_URI.replace("<PASSWORD>", process.env.PASSWORD)
+// const mongoDBUri = process.env.MONGODB_URI_LOCAL.replace("<PASSWORD>", process.env.PASSWORD)
 const mongoDBUri = process.env.MONGODB_URI
 
 // console.log(mongoDBUri)
