@@ -29,7 +29,8 @@ async function createNewUser(){
 //
 //
 
- createNewUser()
+ // createNewUser()
+ // createNewUser()
 
 
 // User.findOne().then(({{name:"Abigirl",age:27})=>{
