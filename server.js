@@ -15,7 +15,7 @@ const mongoDBURI= process.env.MONGODB_URI_LOCAL.replace("<PASSWORD>", process.en
 // client.connect(
 
 mongoose.connect(mongoDBURI).then(()=>{
-    console.log("Connected successfully")
+    console.log("Connected successfully Sahan")
 }).catch(()=>{
     console.log("Error",e.message)
 })
